@@ -94,7 +94,10 @@ public class CSVReader {
     @SuppressWarnings("DefaultLocale")
     public String compare() throws IOException {
 
-        read();
+        String readState = read();
+        if (!Objects.equals(readState, "finish reading")){
+            return readState;
+        }
 
         String line1 = br1.readLine();
         String line2 = br2.readLine();
@@ -129,7 +132,11 @@ public class CSVReader {
             return "Error: there is no column 'Balance' in the files, can not compare";
         }
 
-        chooseCols();
+        String chooseState = chooseCols();
+        if (!Objects.equals(chooseState, "finish choosing cols")){
+            return chooseState;
+        }
+
 
 //        check whether column index > num of columns
         for (int colIndex: this.colsToCompare){
