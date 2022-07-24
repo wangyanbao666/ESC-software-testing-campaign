@@ -14,5 +14,5 @@ Download the whole project and open it using android studio. The class CSVReader
 
 
 ### Note: 
-Since my android studio crashed and I reconfigured the IDLE, I have to force push to the main branch and the commit history of main branch is cleared.
-Tese cases are inside app/java/com/example/testing.
+1. Since my android studio crashed and I reconfigured the IDLE, I have to force push to the main branch and the commit history of main branch is cleared.
+2. Tese cases are inside app/test/java/com/example/testing.
