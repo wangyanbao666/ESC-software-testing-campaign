@@ -36,15 +36,15 @@ def generate_col_selection():
         # non repetitive
         repeat = random.random()>0.5
         if repeat:
-            sample_num = random.random(0,10)
-            cols = random.choices([0,1,2,3],)
+            sample_num = random.randint(0,10)
+            cols = random.sample([0,1,2,3],sample_num)
         else:
             sample_num = random.randint(0,4)
             cols = random.sample([0,1,2,3],sample_num)
 
     else:
         sample_num = random.randint(0,4)
-        cols = random.choices([4,5,6,7], sample_num)
+        cols = random.sample([4,5,6,7], sample_num)
 
     return ",".join(cols)
 
@@ -65,7 +65,7 @@ def random_generate_csv(missing_rate, col_num_lower, col_num_upper, id_not_order
     df = pd.DataFrame(columns = headers)
 
     if (len(headers)==0):
-        df.to_csv(f"data/{file_name}", index=None)
+        df.to_csv(f"data/{file_name}", index=False)
 
     print(headers)
     # create a dataframe
@@ -154,7 +154,7 @@ def random_generate_csv(missing_rate, col_num_lower, col_num_upper, id_not_order
     if id_not_ordered:
         df = df.sample(frac = 1)
     
-    df.to_csv(f"data/{file_name}", index=None)
+    df.to_csv(f"data/{file_name}", index=False)
 
 
 for i in range(30):
